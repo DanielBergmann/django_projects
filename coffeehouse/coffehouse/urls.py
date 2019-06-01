@@ -27,4 +27,5 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='homepage.html')),
     path('admin/doc/', include ('django.contrib.admindocs.urls')),
     path('about/', about_views.contact),
+    #path('accounts/', django.contrib.auth.urls),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
