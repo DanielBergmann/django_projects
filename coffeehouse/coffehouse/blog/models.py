@@ -16,3 +16,17 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+class Story(models.Model):
+    text = models.TextField()
+    number = models.IntegerField()
+    id = models.IntegerField()
+
+
+class Story_part(models.Model,Story.id):
+    text = models.CharField(max_length=140)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    story_id = Story.id
+
+class Finished_story(models.Model):
+    story = models.ForeignKey(Story.text, on_delete=models.CASCADE)

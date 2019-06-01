@@ -20,8 +20,8 @@ from django.views.generic import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
 
-from coffeehouse.coffehouse.about import views as about_views
-from coffeehouse.coffehouse.blog import views as blog_views
+from coffehouse.about import views as about_views
+from coffehouse.blog import views as blog_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,6 +29,9 @@ urlpatterns = [
     path('admin/doc/', include ('django.contrib.admindocs.urls')),
     path('about/', about_views.contact),
     path('register/', blog_views.RegisterFormView.as_view() ),
+    path('login/', blog_views.LoginFormView.as_view() ),
+    path('logout/', blog_views.LogoutView.as_view() ),
+    path('contact/', about_views.contact())
     #path('accounts/', django.contrib.auth.urls),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
